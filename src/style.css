@@ -1,0 +1,46 @@
+body {
+    background-color: #202020;
+}
+
+.guess-input {
+    position: absolute;
+    opacity: 0;
+}
+
+.guess-list {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    width: fit-content;
+    margin: auto;
+}
+
+.guess-row {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+}
+
+.guess-letter {
+    width: 3rem;
+    height: 3rem;
+    font: bold 1rem/3rem sans-serif;
+    color: white;
+    border: 5px solid;
+    text-align: center;
+}
+
+.guess-letter.empty {
+    background-color: #202020;
+    border-color: #404040;
+}
+
+.guess-letter.green {
+    background-color: green;
+    border-color: green;
+}
+
+.guess-letter.yellow {
+    background-color: goldenrod;
+    border-color: goldenrod;
+}
