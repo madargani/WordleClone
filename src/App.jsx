@@ -30,8 +30,10 @@ export default function App() {
 
   const handleKeyDown = (e) => {
     if (e.key === 'Enter' && curGuess.length == WORD_LENGTH) {
-      setNumGuesses(numGuesses + 1);
-      setCurGuess('');
+      if (wordList.includes(curGuess.toLowerCase())) {
+        setNumGuesses(numGuesses + 1)
+        setCurGuess('')
+      }
     }
   }
 
