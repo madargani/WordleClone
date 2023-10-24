@@ -36,21 +36,24 @@ export default function App() {
       // localStorage
       if (localStorage.getItem('answer') == ans) {
         setGuessList(JSON.parse(localStorage.getItem('guessList')))
-        setNumGuesses(localStorage.getItem('numGuesses'))
-        setWon(localStorage.getItem('won'))
+        setNumGuesses(JSON.parse(localStorage.getItem('numGuesses')))
+        setWon(JSON.parse(localStorage.getItem('won')))
       } else {
+        localStorage.setItem('guessList', JSON.stringify(guessList))
+        localStorage.setItem('numGuesses', numGuesses)
+        localStorage.setItem('won', won)
         localStorage.setItem('answer', ans)
       }
     })()
   }, [])
 
   const handleCurGuessChange = (e) => {
-    if (won) return
+    if (won == true) return
 
-    let guess = e.target.value;
-    guess = guess.toUpperCase();
-    guess = guess.replace(/[^A-Z]/g, '');
-    if (guess.length > WORD_LENGTH) guess = guess.slice(0, WORD_LENGTH);
+    let guess = e.target.value
+    guess = guess.toUpperCase()
+    guess = guess.replace(/[^A-Z]/g, '')
+    if (guess.length > WORD_LENGTH) guess = guess.slice(0, WORD_LENGTH)
     
     setCurGuess(guess);
     setGuessList(() => guessList.map((g, index) => {
