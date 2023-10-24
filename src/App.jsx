@@ -22,6 +22,7 @@ export default function App() {
         .then(text => text.split('\n'))
         .then(words => words.map(word => word.trim()))
         .then(words => words.filter(word => word.length == WORD_LENGTH))
+        .then(words => words.map(word => word = word.toUpperCase()))
       setWordList(words)
       
       // initialize answer
@@ -51,7 +52,7 @@ export default function App() {
 
   const handleKeyDown = (e) => {
     if (e.key === 'Enter' && curGuess.length == WORD_LENGTH) {
-      if (wordList.includes(curGuess.toLowerCase())) {
+      if (wordList.includes(curGuess)) {
         setNumGuesses(numGuesses + 1)
         setCurGuess('')
         if (curGuess == answer) setWon(true)
