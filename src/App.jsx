@@ -30,7 +30,17 @@ export default function App() {
       const seed = date.getFullYear() * 10000 + date.getMonth() * 100 + date.getDate()
       const rand = seed * 9301 + 49297 % 233280
       const index = Math.abs(rand % words.length)
-      setAnswer(words[index].toUpperCase())
+      const ans = words[index].toUpperCase()
+      setAnswer(ans)
+
+      // localStorage
+      if (localStorage.getItem('answer') == ans) {
+        setGuessList(JSON.parse(localStorage.getItem('guessList')))
+        setNumGuesses(localStorage.getItem('numGuesses'))
+        setWon(localStorage.getItem('won'))
+      } else {
+        localStorage.setItem('answer', ans)
+      }
     })()
   }, [])
 
@@ -56,6 +66,11 @@ export default function App() {
         setNumGuesses(numGuesses + 1)
         setCurGuess('')
         if (curGuess == answer) setWon(true)
+
+        // localStorage
+        localStorage.setItem('guessList', JSON.stringify(guessList))
+        localStorage.setItem('numGuesses', numGuesses + 1)
+        localStorage.setItem('won', curGuess == answer)
       }
     }
   }
