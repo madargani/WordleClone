@@ -2,6 +2,13 @@ body {
     background-color: #202020;
 }
 
+h1 {
+    color: white;
+    text-align: center;
+    font: bold 3rem sans-serif;
+    margin: 1rem;
+}
+
 .guess-input {
     position: absolute;
     opacity: 0;
@@ -24,7 +31,7 @@ body {
 .guess-letter {
     width: 3rem;
     height: 3rem;
-    font: bold 1rem/3rem sans-serif;
+    font: bold 2rem/3rem sans-serif;
     color: white;
     border: 5px solid;
     text-align: center;
@@ -43,4 +50,9 @@ body {
 .guess-letter.yellow {
     background-color: goldenrod;
     border-color: goldenrod;
+}
+
+.guess-letter.gray {
+    background-color: #404040;
+    border-color: #404040;
 }
