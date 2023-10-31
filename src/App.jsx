@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { GuessList } from './guessList'
+import { GuessList } from './GuessList'
 import './reset.css'
 import './style.css'
 

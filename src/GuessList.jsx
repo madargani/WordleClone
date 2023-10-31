@@ -14,7 +14,7 @@ export function GuessList({ guesses, answer, numGuesses }) {
 }
 
 function GuessRow({ guess, answer, isOldGuess }) {
-    guess = guess.padEnd(5, ' ')
+    guess = guess.padEnd(answer.length, ' ')
     guess = guess.split('')
     answer = answer.split('')
 
@@ -33,7 +33,7 @@ function GuessRow({ guess, answer, isOldGuess }) {
 }
 
 function calcColors(guess, answer) {
-    let colors = Array(5).fill('gray')
+    let colors = Array(answer.length).fill('gray')
     // green
     for (let i = 0; i < answer.length; i++) {
         if (answer[i] === guess[i]) {
